@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <form class="product-form" action="<%= editing ? '/admin/edit-product' : '/admin/add-product' %>" method="POST">
+            <% if (editing) { %>
+                <input type="hidden" name="productId" value="<%= product.id %>">
+            <% } %>
+            <div class="form-control">
+                <label for="Brand">Brand</label>
+                <input type="text" id="Brand" name="Brand" value="<%= editing ? product.Brand : '' %>">
+            </div>
+            <div class="form-control">
+                <label for="Model">Model</label>
+                <input type="text" id="Model" name="Model" value="<%= editing ? product.Model : '' %>">
+            </div>
+            <div class="form-control">
+                <label for="Type">Type</label>
+                <input type="text" id="Type" name="Type" value="<%= editing ? product.Type : '' %>">
+            </div>
+            <div class="form-control">
+                <label for="Seater">Seater</label>
+                <input type="text" id="Seater" name="Seater" value="<%= editing ? product.Seater : '' %>">
+            </div>
+            <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" id="imageUrl" name="imageUrl" value="<%= editing ? product.imageUrl : '' %>">
+            </div>
+            <button class="btn" type="submit"><%= editing ? 'Update Product' : 'Add Product' %></button>
+        </form>
+    </main>
+    <%- include('../includes/end.ejs') %>
+</body>

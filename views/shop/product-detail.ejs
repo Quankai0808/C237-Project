@@ -1,0 +1,183 @@
+<%- include('../includes/head.ejs') %>
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .details-column, .image-column {
+        flex: 1;
+        margin: 10px;
+    }
+    .pricing-section {
+        display: flex;
+        justify-content: space-around;
+        background-color: #f8f8f8;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .pricing-option {
+        text-align: center;
+        flex: 1;
+        border-right: 1px solid #e0e0e0;
+        padding: 0 20px;
+    }
+    .pricing-option:last-child {
+        border-right: none;
+    }
+    .pricing-option h3 {
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    .pricing-option p {
+        margin: 0;
+        font-size: 1.5em;
+        color: #333;
+    }
+    .pricing-option p span {
+        color: #28a745; /* Green color for price */
+        font-weight: bold;
+    }
+    .details-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .details-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .details-item i {
+        margin-right: 10px;
+        color: #888;
+    }
+    .details-item span {
+        font-size: 1em;
+        color: #333;
+    }
+    .availability {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .availability i {
+        margin-right: 10px;
+        color: #28a745;
+    }
+    .deposit-section,
+    .insurance-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+    }
+    .deposit-section h3,
+    .insurance-section h3 {
+        margin-top: 0;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    .deposit-section p,
+    .insurance-section p {
+        margin: 5px 0;
+        font-size: 1em;
+        color: #333;
+    }
+    .image-column img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+</style>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main class="centered">
+        
+        <!-- Pricing Section -->
+        <div class="pricing-section">
+            <div class="pricing-option">
+                <h3>1-year Lease</h3>
+                <p><span>$2,488</span>/mth</p>
+            </div>
+            <div class="pricing-option">
+                <h3>2-year Lease</h3>
+                <p><span>$2,388</span>/mth</p>
+            </div>
+            <div class="pricing-option">
+                <h3>3-year Lease</h3>
+                <p><span>$2,288</span>/mth</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Details Section -->
+            <div class="details-column">
+                <div class="details-section">
+                    <div class="details-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Registered 2020</span>
+                    </div>
+                    <div class="details-item">
+                        <i class="fas fa-users"></i>
+                        <span>5 pax</span>
+                    </div>
+                    <div class="details-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <span>Petrol-Electric</span>
+                    </div>
+                    <div class="details-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <span><%= product.Brand %></span>
+                    </div>
+                    <div class="details-item">
+                        <i class="fas fa-road"></i>
+                        <span>Drive to Malaysia</span>
+                    </div>
+                    <div class="availability">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+
+                <!-- Location Section -->
+                <div class="details-section">
+                    <div class="details-item">
+                        <i class="fas fa-map-marker-alt" style="color: red;"></i>
+                        <span>Sgcarmart, 151 Lor Chuan New Tech Park Lobby D, #04-04, Singapore 556741</span>
+                    </div>
+                </div>
+
+                <!-- Deposit Section -->
+                <div class="deposit-section">
+                    <h3>Deposit</h3>
+                    <p>Short term rental: From $200</p>
+                    <p>Long term lease: From $500 (Japanese Cars) | From $800 (Continental Cars)</p>
+                </div>
+
+                <!-- Insurance Section -->
+                <div class="insurance-section">
+                    <h3>Insurance Excess</h3>
+                    <p>Singapore Usage: From $2,000</p>
+                    <p>Malaysia Usage: From $3,500</p>
+                </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="image-column">
+                <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+            </div>
+        </div>
+
+
+        <hr>
+        <!-- <h2><%= product.Type %></h2>
+        <p><%= product.Seater %></p> -->
+
+    </main>
+    <%- include('../includes/end.ejs') %>
+</body>
